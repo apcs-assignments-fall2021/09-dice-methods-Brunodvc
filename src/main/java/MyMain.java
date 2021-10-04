@@ -32,14 +32,16 @@ public class MyMain {
     // twelve dice. Uses 10000 trials.
     public static double probabilityTwoSixes() {
         double counter = 0.0;
+        double num_of_sixes = 0;
         for (int i = 0; i < 10000; i++) {
+            num_of_sixes = 0.0;
             for (int j = 0; j < 12; j++) {
                 if ((int) (Math.random() * 6) + 1 == 6) {
-                    counter += 1.0;
+                    num_of_sixes += 1.0;
                 }
-                else if (counter > 2.0){
-                    break;
-                }
+            }
+            if (num_of_sixes>= 2){
+                counter += 1.0;
             }
         }
 
@@ -49,8 +51,21 @@ public class MyMain {
     // Calculate the probability of rolling at least three 6's when rolling
     // eighteen dice. Uses 10000 trials.
     public static double probabilityThreeSixes() {
-        // REPLACE WITH YOUR CODE HERE
-        return -1.0;
+        double counter = 0.0;
+        double num_of_sixes = 0;
+        for (int i = 0; i < 10000; i++) {
+            num_of_sixes = 0.0;
+            for (int j = 0; j < 18; j++) {
+                if ((int) (Math.random() * 6) + 1 == 6) {
+                    num_of_sixes += 1.0;
+                }
+            }
+            if (num_of_sixes>= 3){
+                counter += 1.0;
+            }
+        }
+
+        return (counter/10000)*100;
     }
 
     public static void main(String[] args) {
